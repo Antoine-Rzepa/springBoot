@@ -1,5 +1,7 @@
 package com.antoine.restservice.RestApp.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class Personnage {
 
     private int id;
