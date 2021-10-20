@@ -39,10 +39,14 @@ public class PersonnageDaompl implements PersonnageDao{
 
     @Override
     public void delete(int id) {
+        int index = -1;
         for (Personnage personnage : personnages) {
             if(personnage.getId() == id){
-                personnages.remove(personnage);
+                index = personnages.indexOf(personnage);
             }
+        }
+        if(index != -1) {
+            personnages.remove(index);
         }
     }
 }

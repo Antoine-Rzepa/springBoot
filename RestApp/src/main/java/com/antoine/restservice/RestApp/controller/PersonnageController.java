@@ -71,6 +71,7 @@ public class PersonnageController {
                             schema = @Schema(implementation = Personnage.class)) })})
     @DeleteMapping(value = "/personnages/{id}")
     public void supprimerUnPersonnage(@PathVariable int id) {
+
         personnageDao.delete(id);
     }
 }
