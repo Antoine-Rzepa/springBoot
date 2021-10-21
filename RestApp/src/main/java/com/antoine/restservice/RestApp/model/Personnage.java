@@ -1,15 +1,26 @@
 package com.antoine.restservice.RestApp.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "personnages")
 public class Personnage {
 
+    @Id
+    @GeneratedValue
     private int id;
+    @Column(name = "nom")
     private String name;
+    @Column
     private String type;
 
-    public Personnage(int id, String name, String type) {
-        this.id = id;
+    public Personnage(String name, String type) {
         this.name = name;
         this.type = type;
+    }
+
+    public Personnage() {
+
     }
 
     public int getId() {

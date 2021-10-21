@@ -1,14 +1,10 @@
 package com.antoine.restservice.RestApp.dao;
 
 import com.antoine.restservice.RestApp.model.Personnage;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
-public interface PersonnageDao {
-
-    public List<Personnage> findAll();
-    public  Personnage findById(int id);
-    public void save(Personnage personnage);
-    public void delete(int id);
+@Repository
+public interface PersonnageDao extends JpaRepository<Personnage, Integer> {
 
 }

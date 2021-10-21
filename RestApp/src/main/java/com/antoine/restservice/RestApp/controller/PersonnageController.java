@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class PersonnageController {
@@ -35,7 +36,7 @@ public class PersonnageController {
                     content = { @Content(mediaType = "application/json",
                             schema = @Schema(implementation = Personnage.class)) })})
     @GetMapping(value = "personnages/{id}")
-    public Personnage afficherUnPersonnage(@PathVariable int id){
+    public Optional<Personnage> afficherUnPersonnage(@PathVariable int id){
         return personnageDao.findById(id);
     }
 
@@ -72,6 +73,6 @@ public class PersonnageController {
     @DeleteMapping(value = "/personnages/{id}")
     public void supprimerUnPersonnage(@PathVariable int id) {
 
-        personnageDao.delete(id);
+        personnageDao.deleteById(id);
     }
 }
